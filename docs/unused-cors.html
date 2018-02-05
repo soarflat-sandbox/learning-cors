@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+  <script>
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(JSON.parse(xhr.responseText));
+      }
+    };
+
+    xhr.open('GET', 'http://localhost:5050/', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+  </script>
+</body>
+</html>
