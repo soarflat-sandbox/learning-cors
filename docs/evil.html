@@ -8,8 +8,8 @@
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        // gmailにログイン後、同じブラウザでこのページに訪問したらメール情報を取得できてしまうため
-        // 取得したメール情報をサーバに送信して盗んだりやりたい放題できる
+        // 同一オリジンポリシーがなければgmailにログイン後、同じブラウザでこのページに訪問したらメール情報を取得できてしまう
+        // 今回はconsole.logをしているだけだが、取得したメール情報をサーバに送信して盗んだりやりたい放題できる
         console.log(xhr.responseText);
       }
     };
