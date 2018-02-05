@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>悪意あるサイト</title>
+</head>
+<body>
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // gmailにログイン後、同じブラウザでこのページに訪問したらメール情報を取得できてしまうため
+        // 取得したメール情報をサーバに送信して盗んだりやりたい放題できる
+        console.log(xhr.responseText);
+      }
+    };
+    xhr.open('GET', 'https://mail.google.com/mail/#inbox', true);
+    xhr.send();
+  </script>
+</body>
+</html>
